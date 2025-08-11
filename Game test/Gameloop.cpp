@@ -44,7 +44,7 @@ void Gameloop::run() {
 
         window.clear(sf::Color(0, 0, 0)); 
 
-        processInput();
+        // processInput();
         update();
         render(window);
 
@@ -57,7 +57,13 @@ void Gameloop::processInput() {
 }
 
 void Gameloop::update() {
-    std::cout<<currentRoom.first<<" "<<currentRoom.second<<"\n";
+    // std::cout<<currentRoom.first<<" "<<currentRoom.second<<"\n";
+    for(int i = 0; i < 15; i++) {
+        for(int j = 0; j < 20; j++) {
+            walls[i][j] = (level[currentRoom.first][currentRoom.second].tiles[i][j].id == 2);
+            //maybe use .count & set to define walls (?)
+        }
+    }
     player.update();  // Update player state
 }
 

@@ -7,6 +7,6 @@ public:
     Tile tiles[15][20];
     Room();
     Room(int arr[15][20]);
-    // void update();
+    void update();
     void draw(sf::RenderWindow& window);
 };

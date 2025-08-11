@@ -13,6 +13,7 @@ public:
     int levels = 5;
     Room level[10][10];  // Assuming you have a Room class to manage tiles
     std::pair<int, int> currentRoom;  // Player's position in the current room
+    bool walls[15][20];  // Wall presence in the current room
 
     Gameloop();
 

@@ -21,7 +21,7 @@ void Tile::draw(sf::RenderWindow& window) {
     sf::RectangleShape rectangle(sf::Vector2f(40, 40)); // Assuming tile size is 32x32
     switch (id)
     {
-    case 0:
+    case 0: //test black tile
         rectangle.setFillColor(sf::Color(0, 0, 0));                 // Fill color
         rectangle.setOutlineThickness(1);                       // Outline thickness
         rectangle.setOutlineColor(sf::Color::Red);                // Outline color
@@ -29,14 +29,20 @@ void Tile::draw(sf::RenderWindow& window) {
         window.draw(rectangle);  // Draw the rectangle
         break;
 
-    case 1:
+    case 1: //test red tile
         rectangle.setFillColor(sf::Color(100, 0, 0));                 // Fill color
-        rectangle.setOutlineThickness(1);                       // Outline thickness
-        rectangle.setOutlineColor(sf::Color(150, 150, 150));                // Outline color
+        rectangle.setOutlineThickness(0);                       // Outline thickness
         rectangle.setPosition(pos.first * 40, pos.second*40);                      // Position on screen
         window.draw(rectangle);  // Draw the rectangle
         break;
     
+    case 2: //test wall tile (YES FUNCTIONAL)
+        rectangle.setFillColor(sf::Color::Red);                 // Fill color
+        rectangle.setOutlineThickness(0);                       // Outline thickness
+        rectangle.setPosition(pos.first * 40, pos.second*40);                      // Position on screen
+        window.draw(rectangle);  // Draw the rectangle
+        break;
+
     default:
         break;
     }
