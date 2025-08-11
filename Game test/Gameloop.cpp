@@ -9,6 +9,11 @@ Gameloop::Gameloop()
       view(sf::FloatRect(0.f, 0.f, 800.f, 600.f))
 {
     window.setView(view); 
+    for(int i = 0 ; i < 10; i++){
+        for(int j = 0; j < 10; j++){
+            level[i][j] = Room();  // Initialize each room with default tiles
+        }
+    }
 }
 
 void Gameloop::run() {
@@ -52,11 +57,17 @@ void Gameloop::processInput() {
 }
 
 void Gameloop::update() {
+    std::cout<<currentRoom.first<<" "<<currentRoom.second<<"\n";
     player.update();  // Update player state
 }
 
 void Gameloop::render(sf::RenderWindow& window) {
+    if(!(currentRoom.first < 0 || currentRoom.first >= 10 || 
+       currentRoom.second < 0 || currentRoom.second >= 10)) {
+        level[currentRoom.first][currentRoom.second].draw(window);  // Draw the current room
+    }
     player.draw(window); 
+
 }
 
 void Gameloop::stop() {

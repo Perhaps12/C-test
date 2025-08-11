@@ -12,6 +12,8 @@ public:
     void draw(sf::RenderWindow& window);
 
     std::pair<double, double> pos;  // Player's position in the game
+    std::pair<int, int> hitbox;  // Player's hitbox radius
+    std::pair<int, int> size;  // Player's size
     double speed = 5.0, modifier = 1.0;  // Movement speed and modifier
 private:
     Gameloop& game;  // Reference to Gameloop for interaction
